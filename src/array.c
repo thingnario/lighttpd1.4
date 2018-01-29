@@ -13,6 +13,9 @@
 
 #define ARRAY_NOT_FOUND ((size_t)(-1))
 
+#ifndef SSIZE_MAX
+	#define SSIZE_MAX 0x7fffffff
+#endif
 array *array_init(void) {
 	array *a;
 
