@@ -409,6 +409,8 @@ if LIGHTTPD_STATIC
 ## (order is not important)
 lighttpd_SOURCES = \
   $(src) \
+  mod_evhost.c \
+  mod_trigger_b4_dl.c \
   mod_access.c \
   mod_accesslog.c \
   mod_alias.c \
