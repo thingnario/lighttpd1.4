@@ -24,6 +24,7 @@ export RANLIB=${ARCH}-ranlib
 export CC=${ARCH}-gcc
 export NM=${ARCH}-nm
 
+./autogen.sh
 LIGHTTPD_STATIC=yes ./configure --prefix=$tool_chain_path --target=${ARCH} --host=${ARCH} --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6
 make clean
 make 
