@@ -27,7 +27,7 @@ export CC=${ARCH}-gcc
 export NM=${ARCH}-nm
 
 ./autogen.sh
-LIGHTTPD_STATIC=yes ./configure --prefix=$tool_chain_path --target=${ARCH} --host=${ARCH} --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6
+LIGHTTPD_STATIC=yes ./configure --prefix=$tool_chain_path --target=${ARCH} --host=${ARCH} --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6 --with-zlib=$tool_chain_path/lib
 make clean
-make 
+make
 sudo "PATH=$PATH" make install
