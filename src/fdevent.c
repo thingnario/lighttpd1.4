@@ -561,7 +561,7 @@ int fdevent_accept_listenfd(int listenfd, struct sockaddr *addr, size_t *addrlen
 	int fd;
 	socklen_t len = (socklen_t) *addrlen;
 
-      #if defined(SOCK_CLOEXEC) && defined(SOCK_NONBLOCK)
+      #if defined(SOCK_CLOEXEC) && defined(SOCK_NONBLOCK) && LINUX_VERSION_CODE >= 0x2061C && __GLIBC_PREREQ(2, 10)
        #if defined(__NetBSD__)
 	fd = paccept(listenfd, addr, &len, NULL, SOCK_CLOEXEC | SOCK_NONBLOCK);
        #else

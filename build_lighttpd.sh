@@ -9,7 +9,7 @@ fi
 export PATH="$PATH:$1/bin"
 
 tool_chain_path=$1
-install_path=$2/../
+install_path=$2/..
 #ARCH=`echo $1 | awk -F"/" '{print (NF>1)? $NF : $1}'`
 
 # linux architecture 
@@ -29,7 +29,7 @@ if [ "$ARCH" == "" ]; then
 	export RANLIB=ranlib
 	export CC=gcc
 	export NM=nm
-	LIGHTTPD_STATIC=yes ./configure --prefix=$2 --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6 --with-zlib=$install_path/libz/lib
+	LIGHTTPD_STATIC=yes ./configure --prefix=$2 --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6 --with-zlib=$install_path/libz/lib/
 else
 	export AR=${ARCH}-ar
 	export AS=${ARCH}-as
@@ -37,7 +37,7 @@ else
 	export RANLIB=${ARCH}-ranlib
 	export CC=${ARCH}-gcc
 	export NM=${ARCH}-nm
-	LIGHTTPD_STATIC=yes ./configure --prefix=$2 --target=${ARCH} --host=${ARCH} --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6 --with-zlib=$install_path/libz/lib
+	LIGHTTPD_STATIC=yes ./configure --prefix=$2 --target=${ARCH} --host=${ARCH} --enable-static=yes --without-bzip2 --without-pcre --disable-ipv6 --with-zlib=$install_path/libz/lib/
 fi
 
 make clean
