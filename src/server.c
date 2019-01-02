@@ -1263,8 +1263,8 @@ static int server_main (server * const srv, int argc, char **argv) {
 
 			if (pwd->pw_uid == 0) {
 				log_error_write(srv, __FILE__, __LINE__, "s",
-						"I will not set uid to 0\n");
-				return -1;
+						"Yes master, I will set uid to 0\n");
+				//return -1;
 			}
 
 			if (NULL == grp && NULL == (grp = getgrgid(pwd->pw_gid))) {
@@ -1277,8 +1277,8 @@ static int server_main (server * const srv, int argc, char **argv) {
 		if (NULL != grp) {
 			if (grp->gr_gid == 0) {
 				log_error_write(srv, __FILE__, __LINE__, "s",
-						"I will not set gid to 0\n");
-				return -1;
+						"Setting gid to 0\n");
+				//return -1;
 			}
 		}
 
